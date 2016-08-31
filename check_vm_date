@@ -1,0 +1,37 @@
+#!/bin/bash
+delimetr="-"
+
+#Chek if exist username and date
+if [[ -z "$1" || -z "$2" ]]
+then
+  echo "Please add username and date as argument"
+  exit 1
+fi
+#Name of VM
+name=$1
+#Day for check
+check_day=$2
+stateVM="shut off"
+#List of exist VM for delete
+check_list=(`virsh list --all | grep "$name" |grep "$stateVM" | awk '{print $2}'`)
+
+day=0
+for i in $(eval echo "{$day..$check_day}")
+      do
+
+	truday=`date +%F -d "-$i days"`
+#Create name list VM that need leave
+declare -a fullname
+	fullname+=($name$delimetr$truday)
+done
+
+#In this step we delete from exist check_list elements fullname
+for i in "${fullname[@]}"
+	do
+check_list=("${check_list[@]/$i}")
+done
+for j in "${check_list[@]}"
+do
+virsh destroy "$j"
+done
+
