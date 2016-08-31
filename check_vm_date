@@ -1,7 +1,7 @@
 #!/bin/bash
 delimetr="-"
 
-#Chek if exist username and date
+#Chek if exist username and date some komment
 if [[ -z "$1" || -z "$2" ]]
 then
   echo "Please add username and date as argument"
