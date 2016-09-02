@@ -52,4 +52,4 @@ if what_do == 'Y':
        print(ub[j])
 else:
    print("Have a nice day!")
-   print("See chenge")
+   print("See chenge bka idoiwud9wi iufw3u80ru2eu2idjiaesuere ")
