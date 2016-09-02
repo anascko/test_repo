@@ -35,4 +35,4 @@ do
 virsh destroy "$j"
 print "Destroy vm or erase"
 done
-
+echo "Test"
