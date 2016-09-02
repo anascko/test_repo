@@ -33,6 +33,6 @@ done
 for j in "${check_list[@]}"
 do
 virsh destroy "$j"
-print "Destroy vm"
+print "Destroy vm or erase"
 done
 
